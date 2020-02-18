@@ -1,0 +1,8 @@
+template: Hello, %s!
+defaultName: Stranger
+
+postgresql:
+  driverClass: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/dropwizard_intro
+  user: ${DATASOURCE_USER}
+  password: ${DATASOURCE_PASSWORD}
