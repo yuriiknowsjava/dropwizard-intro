@@ -1,7 +1,9 @@
 package edu.yuriikoval1997.health;
 
 import com.codahale.metrics.health.HealthCheck;
+import org.springframework.stereotype.Component;
 
+@Component("templateHealthCheck")
 public class TemplateHealthCheck extends HealthCheck {
     private final String template;
 
