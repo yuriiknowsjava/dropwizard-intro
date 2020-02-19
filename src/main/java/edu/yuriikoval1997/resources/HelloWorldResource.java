@@ -28,7 +28,7 @@ public class HelloWorldResource {
     }
 
     @GET
-    @Timed
+    @Timed(name = "sayHelloTimer")
     public Saying sayHello(@QueryParam("name") String name) {
         String value = name;
         if (name.isBlank()) {

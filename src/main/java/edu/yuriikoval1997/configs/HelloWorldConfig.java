@@ -5,6 +5,7 @@ import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Bean;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -25,4 +26,9 @@ public class HelloWorldConfig extends Configuration {
     @Valid
     @NotNull
     private DataSourceFactory dataSourceFactory = new DataSourceFactory();
+
+    @Bean
+    public String testBean() {
+        return "testBean";
+    }
 }

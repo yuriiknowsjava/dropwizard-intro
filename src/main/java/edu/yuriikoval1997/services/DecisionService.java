@@ -1,19 +1,25 @@
 package edu.yuriikoval1997.services;
 
+import com.codahale.metrics.annotation.Timed;
+import org.springframework.stereotype.Service;
+
+@Service
 public class DecisionService {
 
-    public String whatIsNumber(int n) {
-        if (n % 2 == 0) {
-            return odd();
+    public String decide() {
+        if (Math.random() > 0.5) {
+            return success();
         }
-        return even();
+        return failure();
     }
 
-    private String odd() {
-        return "The number is odd.";
+    @Timed(name = "successTimer")
+    private String success() {
+        return "Перемога!";
     }
 
-    private String even() {
-        return "The number is even.";
+    @Timed(name = "failureTimer")
+    private String failure() {
+        return "Зрада!";
     }
 }
