@@ -48,9 +48,9 @@ public class HelloWorldApp extends Application<HelloWorldConfig> {
         ctx.start();
 
         ctx.getBeansOfType(HealthCheck.class)
-                .forEach((k, v) -> {
-                    environment.healthChecks().register(k, v);
-                });
+                .forEach((k, v) -> environment
+                        .healthChecks()
+                        .register(k, v));
 
         ctx.getBeansWithAnnotation(Path.class)
                 .values()

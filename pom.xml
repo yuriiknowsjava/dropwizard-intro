@@ -74,6 +74,11 @@
             <artifactId>dropwizard-migrations</artifactId>
             <version>${dropwizard.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>4.1.2</version>
+        </dependency>
 
         <!-- Database -->
         <dependency>
@@ -121,14 +126,6 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>3.8.6</version>
-        </dependency>
-
-
-        <!-- Dependency Injection -->
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>4.2.2</version>
         </dependency>
     </dependencies>
 
