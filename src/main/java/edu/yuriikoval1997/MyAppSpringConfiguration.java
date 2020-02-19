@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Configuration
-@ComponentScan(basePackages = {"edu.yuriikoval1997", "edu.yuriikoval1997.configs"})
+@ComponentScan
 public class MyAppSpringConfiguration {
 
     @Bean
