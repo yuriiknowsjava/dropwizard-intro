@@ -81,18 +81,6 @@
             <version>${dropwizard.version}</version>
         </dependency>
 
-        <!-- Metrics -->
-        <dependency>
-            <groupId>io.dropwizard.metrics</groupId>
-            <artifactId>metrics-core</artifactId>
-            <version>${metrics.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.dropwizard.metrics</groupId>
-            <artifactId>metrics-servlets</artifactId>
-            <version>${metrics.version}</version>
-        </dependency>
-
         <!-- Database -->
         <dependency>
             <groupId>org.postgresql</groupId>

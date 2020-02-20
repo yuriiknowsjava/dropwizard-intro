@@ -1,8 +1,13 @@
 package edu.yuriikoval1997;
 
+import com.codahale.metrics.Counter;
+import com.codahale.metrics.Gauge;
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Timer;
 import com.codahale.metrics.health.HealthCheck;
 import edu.yuriikoval1997.configs.HelloWorldConfig;
 import edu.yuriikoval1997.configs.bundles.LiquibaseBundle;
+import edu.yuriikoval1997.services.DecisionService;
 import edu.yuriikoval1997.spring.SpringContextLoaderListener;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -13,6 +18,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import javax.ws.rs.Path;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+import static com.codahale.metrics.MetricRegistry.name;
 
 @Slf4j
 @Configuration
@@ -61,6 +70,10 @@ public class HelloWorldApp extends Application<HelloWorldConfig> {
         ctx.getBeansWithAnnotation(Path.class)
                 .values()
                 .forEach(environment.jersey()::register);
+
+        // Registering metric beans into dropwizard env
+        ctx.getBeansOfType(MetricRegistry.class)
+                .forEach(environment.metrics()::register);
 
         environment.servlets().addServletListeners(new SpringContextLoaderListener(ctx));
     }
