@@ -12,7 +12,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.function.Predicate;
 
 import static java.util.function.Predicate.not;
 

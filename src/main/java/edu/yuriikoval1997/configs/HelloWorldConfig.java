@@ -30,7 +30,7 @@ public class HelloWorldConfig extends Configuration {
     @JsonProperty("postgresql")
     public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
         dataSourceFactory.setPassword(System.getenv("DATASOURCE_PASSWORD"));
-        dataSourceFactory.setUser(System.getenv("DATASOURCE_PASSWORD"));
+        dataSourceFactory.setUser(System.getenv("DATASOURCE_USER"));
         this.dataSourceFactory = dataSourceFactory;
     }
 }
