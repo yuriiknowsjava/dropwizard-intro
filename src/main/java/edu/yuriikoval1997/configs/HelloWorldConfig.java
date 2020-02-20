@@ -3,6 +3,7 @@ package edu.yuriikoval1997.configs;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.server.ServerFactory;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.annotation.Bean;
@@ -22,13 +23,14 @@ public class HelloWorldConfig extends Configuration {
     @JsonProperty
     private String defaultName = "Stranger";
 
-    @JsonProperty("postgresql")
     @Valid
     @NotNull
     private DataSourceFactory dataSourceFactory = new DataSourceFactory();
 
-    @Bean
-    public String testBean() {
-        return "testBean";
+    @JsonProperty("postgresql")
+    public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
+        dataSourceFactory.setPassword(System.getenv("DATASOURCE_PASSWORD"));
+        dataSourceFactory.setUser(System.getenv("DATASOURCE_PASSWORD"));
+        this.dataSourceFactory = dataSourceFactory;
     }
 }
