@@ -10,7 +10,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.function.Predicate;
+
+import static java.util.function.Predicate.not;
 
 @Component
 @Path("/hello-world")
@@ -29,11 +33,10 @@ public class HelloWorldResource {
 
     @GET
     @Timed(name = "sayHelloTimer")
-    public Saying sayHello(@QueryParam("name") String name) {
-        String value = name;
-        if (name.isBlank()) {
-            value = defaultName;
-        }
+    public Saying sayHello(@QueryParam("name") Optional<String> name) {
+        String value = name
+                .filter(not(String::isBlank))
+                .orElse(defaultName);
         return new Saying(counter.incrementAndGet(), String.format(template, value));
     }
 }
