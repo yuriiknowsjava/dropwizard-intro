@@ -3,10 +3,8 @@ package edu.yuriikoval1997.configs;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
-import io.dropwizard.server.ServerFactory;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Bean;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
