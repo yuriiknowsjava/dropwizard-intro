@@ -30,6 +30,7 @@ public class HelloWorldResource {
         this.counter = counter;
     }
 
+    @Counted(name = "myCounter")
     @Metered(name = "sayHelloMeter")
     @GET
     @Timed(name = "sayHelloTimer")

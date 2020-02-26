@@ -34,6 +34,7 @@ public class DecisionService {
 
     private String failure() {
         metricRegistry.meter("failureMetric").mark();
+        metricRegistry.counter("mmm5").inc();
         return "Зрада!";
     }
 }
