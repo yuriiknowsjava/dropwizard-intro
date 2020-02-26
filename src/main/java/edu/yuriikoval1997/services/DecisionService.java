@@ -25,7 +25,7 @@ public class DecisionService {
     private String success() {
         Timer.Context timer = metricRegistry.timer("successTimer").time();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException ignored) {
         }
         timer.stop();

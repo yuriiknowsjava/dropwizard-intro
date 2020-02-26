@@ -1,6 +1,6 @@
 package edu.yuriikoval1997.resources;
 
-import com.codahale.metrics.annotation.Timed;
+import com.codahale.metrics.annotation.*;
 import edu.yuriikoval1997.pojos.Saying;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,6 +30,7 @@ public class HelloWorldResource {
         this.counter = counter;
     }
 
+    @Metered(name = "sayHelloMeter")
     @GET
     @Timed(name = "sayHelloTimer")
     public Saying sayHello(@QueryParam("name") Optional<String> name) {
